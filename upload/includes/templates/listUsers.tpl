@@ -19,4 +19,3 @@
 {/foreach}
 </table>
 
-{include file = "footer.tpl"}

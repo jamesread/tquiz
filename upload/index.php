@@ -7,6 +7,7 @@ $tpl->display('home.tpl');
 
 $tpl->assign('sponsorMessage', getSiteSetting('sponsorMessage'));
 $tpl->display('sponsors.tpl');
-$tpl->display('footer.tpl');
+
+require_once 'includes/widgets/footer.php';
 
 ?>

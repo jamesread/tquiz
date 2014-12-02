@@ -21,5 +21,5 @@ $tpl->display('header.tpl');
 $tpl->assignForm($formLogin);
 $tpl->display('login.tpl');
 
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 

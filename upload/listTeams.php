@@ -43,6 +43,6 @@ foreach ($teamList as $rank => &$team) {
 $tpl->assign('teamList', $teamList);
 
 $tpl->display('teams.tpl');
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>

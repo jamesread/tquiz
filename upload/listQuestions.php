@@ -70,7 +70,7 @@ $tpl->assignForm($f);
 $tpl->assign('containerClass', 'answeringForm');
 $tpl->display('form.tpl');
 
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 
 ?>

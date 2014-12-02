@@ -27,6 +27,6 @@ $tpl->assign('level', $itemLevel);
 $tpl->display('viewLevel.tpl');
 $tpl->assign('questionsList', $listQuestions);
 $tpl->display('questionsList.tpl');
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>

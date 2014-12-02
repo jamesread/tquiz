@@ -11,6 +11,6 @@ $stmt = DatabaseFactory::getInstance()->prepare($sql);
 $stmt->execute();
 
 $tpl->assign('quizes', $stmt->fetchAll());
-$tpl->display('listQuizes.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>

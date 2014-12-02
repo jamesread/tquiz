@@ -27,6 +27,6 @@ if (!empty($registrationBlockMessage)) {
 	$tpl->display('register.tpl');
 }
 
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>

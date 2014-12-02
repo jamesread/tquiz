@@ -17,6 +17,6 @@ if ($f->validate()) {
 $tpl->display('header.tpl');
 $tpl->assignForm($f);
 $tpl->display('form.tpl');
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>

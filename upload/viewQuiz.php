@@ -30,6 +30,7 @@ foreach ($listLevels as &$level) {
 $tpl->assign('quiz', $quiz);
 $tpl->assign('listLevels', $listLevels);
 $tpl->display('viewQuiz.tpl');
-$tpl->display('footer.tpl');
+
+require_once 'includes/widgets/footer.php';
 
 ?>

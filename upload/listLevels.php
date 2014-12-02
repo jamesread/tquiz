@@ -48,6 +48,6 @@ $tpl->assign('listLevels', $listLevels);
 $tpl->assign('team', $team);
 $tpl->display('listLevels.tpl');
 
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>

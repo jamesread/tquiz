@@ -12,4 +12,6 @@ $stmt->execute();
 $tpl->assign('userlist', $stmt->fetchAll());
 $tpl->display('listUsers.tpl');
 
+require_once 'includes/widgets/footer.php';
+
 ?>

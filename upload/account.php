@@ -21,6 +21,6 @@ $stmt->execute();
 $tpl->assign('listJoinedQuizes', $stmt->fetchAll());
 
 $tpl->display('account.tpl');
-$tpl->display('footer.tpl');
+require_once 'includes/widgets/footer.php';
 
 ?>
