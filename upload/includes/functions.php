@@ -63,7 +63,7 @@ function redirect($url, $reason) {
 	echo '<h2>Redirecting: '  . $reason.  '</h2>';
 	echo '<p>You are being redirected to <a href = "' . $url . '">here</a>.</p>';
 
-	$tpl->display('footer.minimal.tpl');
+	require_once 'includes/widgets/footer.php';
 }
 
 

@@ -22,7 +22,7 @@
 {foreach from = "$questionsList" item = "question"}
 	<tr>
 		<td><a href = "editQuestion.php?formEditQuestion-id={$question.id}">{$question.id}</a></td>
-		<td>{$question.question|htmlify}</td>
+		<td>{$question.question}</td>
 		<td>
 		{if $question.imageUrl eq ''}
 			N/A
@@ -32,8 +32,8 @@
 			</a>
 		{/if}
 		</td>
-		<td>{$question.answer|htmlify}</td>
-		<td>{$question.level|htmlify}</td>
+		<td>{$question.answer}</td>
+		<td>{$question.level}</td>
 	</tr>
 {/foreach}
 	</tbody>
