@@ -28,7 +28,7 @@
 			N/A
 		{else}
 			<a href = "editQuestion.php?formEditQuestion-id={$question.id}">
-			<img src = "resources/images/questions/{$question.imageUrl}" width = "100" height = "100" alt = "image for question {$question.id}" />
+			<img src = "resources/images/questions/{$question.imageUrl}" width = "100" alt = "image for question {$question.id}" />
 			</a>
 		{/if}
 		</td>
