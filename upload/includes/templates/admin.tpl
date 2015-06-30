@@ -2,8 +2,11 @@
 
 <h3>Lists</h3>
 <ul>
-	<li><a href = "listQuizes.php">List quizes</a></li>
-	<li><a href = "listUsers.php">List users</a></li>
+	<li><a href = "listQuizes.php">Quizes</a>
+	<ul> 
+		<li><a href = "viewQuiz.php">Active Quiz</a></li>
+	</ul>
+	<li><a href = "listUsers.php">Users</a></li>
 	<li><a href = "siteSettings.php">Site settings</a></li>
 </ul>
 

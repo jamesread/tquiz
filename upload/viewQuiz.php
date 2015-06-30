@@ -9,9 +9,15 @@ requirePrivOrRedirect('READ_QUIZ', 'index.php');
 
 $sanitizer = new Sanitizer();
 
+$quiz = $sanitizer->filterUint('id');
+
+if ($quiz == null) {
+	$quiz = ACTIVE_QUIZ;
+}
+
 $sql = 'SELECT q.id, q.title FROM quizes q WHERE q.id = :id';
 $stmt = DatabaseFactory::getInstance()->prepare($sql);
-$stmt->bindValue(':id', $sanitizer->filterUint('id'));
+$stmt->bindValue(':id', $quiz);
 $stmt->execute();
 
 $quiz = $stmt->fetchRow();
