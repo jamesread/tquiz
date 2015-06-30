@@ -36,8 +36,9 @@ class FormRegister extends Form {
 		$el->addOption('(none)', 0);
 		$el->setSize(10);
 
-		$sql = 'SELECT t.id, t.title, t.userCount FROM teams t WHERE t.userCount < 3 AND t.isPrivate = 0 ORDER BY t.title ASC';
+		$sql = 'SELECT t.id, t.title, t.userCount FROM teams t WHERE t.userCount < 3 AND t.isPrivate = 0 AND t.quiz = :activeQuiz ORDER BY t.title ASC';
 		$stmt = $db->prepare($sql);
+		$stmt->bindValue(':activeQuiz', ACTIVE_QUIZ);
 		$stmt->execute();
 
 
