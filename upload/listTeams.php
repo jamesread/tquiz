@@ -10,7 +10,7 @@ if (!Session::isLoggedIn()) {
 
 $tpl->display('header.tpl');
 
-$sql = 'SELECT t.id, t.title, t.userCount, t.registered, count(p.id) AS level FROM teams t LEFT JOIN team_progress p ON p.team = t.id WHERE t.quiz = :activeQuiz AND t.isPrivate = 0 GROUP BY t.id ORDER BY level DESC, registered DESC';
+$sql = 'SELECT t.id, t.title, COUNT(m.id) AS userCount, t.registered, count(p.id) AS level FROM teams t LEFT JOIN team_progress p ON p.team = t.id LEFT JOIN team_memberships m ON m.team = t.id AND m.quiz = t.quiz WHERE t.quiz = :activeQuiz AND t.isPrivate = 0 GROUP BY t.id ORDER BY level DESC, registered DESC';
 $stmt = $db->prepare($sql);
 $stmt->bindValue(':activeQuiz', ACTIVE_QUIZ);
 $stmt->execute();

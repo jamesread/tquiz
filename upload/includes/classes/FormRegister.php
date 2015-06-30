@@ -32,13 +32,14 @@ class FormRegister extends Form {
 	public function getExistingTeamSelectionElement() {
 		global $db;
 
-		$el = new ElementSelect('teamExistingSelect', 'Existing team', null, 'The list of available teams to join, full teams are hidden, maximum of 3 people per team.');
+		$el = new ElementSelect('teamExistingSelect', 'Existing team', null, 'The list of available teams to join, full teams are hidden, <strong>maximum of 3 people per team</strong>.');
 		$el->addOption('(none)', 0);
 		$el->setSize(10);
 
-		$sql = 'SELECT t.id, t.title, t.userCount FROM teams t WHERE t.userCount < 3 AND t.isPrivate = 0 AND t.quiz = :activeQuiz ORDER BY t.title ASC';
+		$sql = 'SELECT t.id, t.title, COUNT(m.id) AS userCount FROM teams t LEFT JOIN team_memberships m ON m.team = t.id and m.quiz = :activeQuiz1 WHERE t.isPrivate = 0 AND t.quiz = :activeQuiz2 HAVING COUNT(m.id) < 3 ORDER BY t.title ASC';
 		$stmt = $db->prepare($sql);
-		$stmt->bindValue(':activeQuiz', ACTIVE_QUIZ);
+		$stmt->bindValue(':activeQuiz1', ACTIVE_QUIZ);
+		$stmt->bindValue(':activeQuiz2', ACTIVE_QUIZ);
 		$stmt->execute();
 
 
@@ -138,11 +139,6 @@ class FormRegister extends Form {
 		$stmt->bindValue(':user', $this->userId);
 		$stmt->bindValue(':team', $this->selectedTeamId);
 		$stmt->bindValue(':quiz', ACTIVE_QUIZ);
-		$stmt->execute();
-
-		$sql = 'UPDATE teams t SET t.userCount = t.userCount + 1 WHERE t.id = :teamId ';
-		$stmt = $db->prepare($sql);
-		$stmt->bindValue(':teamId', $this->selectedTeamId);
 		$stmt->execute();
 
 		$db->commit();
