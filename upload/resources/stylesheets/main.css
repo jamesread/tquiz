@@ -180,32 +180,23 @@ div.levelSelect {
 }
 
 div.levelSelect a {
-	border: 1px solid #999;
+	border: 1px solid black;
 	display: block;
 	margin: auto;
 	margin-bottom: 1em;
+	color: black;
 }
 
 div.levelSelect a p.title {
 	margin: 0;
-	color: #999;
+	color: black;
 	background-color: beige;
 	padding: 1em;
 	display: block;
 	font-weight: bold;
 }
 
-div.levelSelect a img {
-	opacity: .5;
-}
-
 div.levelSelect a:hover {
-	text-decoration: none;
-	border: 1px solid black;
-}
-
-div.levelSelect a:hover img {
-	opacity: 1;
 }
 
 div.levelSelect a:hover p.title {
