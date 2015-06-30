@@ -192,7 +192,6 @@ DROP TABLE IF EXISTS `teams`;
 CREATE TABLE `teams` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(64) DEFAULT NULL,
-  `userCount` int(11) NOT NULL DEFAULT '0',
   `registered` datetime DEFAULT NULL,
   `isPrivate` int(11) NOT NULL DEFAULT '0',
   `quiz` int(11) DEFAULT NULL,
