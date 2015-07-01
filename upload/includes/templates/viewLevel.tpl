@@ -4,6 +4,7 @@
 <p>
 	<strong>ID:</strong> {$level.id}<br />
 	<strong>Title:</strong> {$level.title}
+	<br /><img src = "resources/images/levels/level{$level.id}.png" />
 </p>
 <h3>Item Actions</h3>
 <ul>
