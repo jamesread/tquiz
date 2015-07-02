@@ -6,6 +6,7 @@ use \libAllure\ElementFile;
 use \libAllure\ElementTextbox;
 use \libAllure\ElementSelect;
 use \libAllure\ElementInput;
+use \libAllure\ElementCheckbox;
 
 class FormEditQuestion extends Form {
 	public function __construct($id) {
@@ -36,6 +37,8 @@ class FormEditQuestion extends Form {
 
 		$this->addElement(new ElementInput('hints', 'Hints', $this->question['hint1']));
 		$this->getElement('hints')->setMinMaxLengths(0, 128);
+
+		$this->addElement(new ElementCheckbox('delete', 'Delete'));
 		$this->addDefaultButtons();
 	}
 
@@ -72,6 +75,16 @@ class FormEditQuestion extends Form {
 
 	public function process() {
 		global $db;
+
+		if ($this->getElementValue('delete')) {
+			requirePrivOrRedirect('SUPERUSER', 'index.php');
+
+			$sql = 'DELETE FROM questions WHERE id = :questionId';
+			$stmt = $db->prepare($sql);
+			$stmt->bindValue(':questionId', $this->getElementValue('id'));
+			$stmt->execute();
+			return;
+		}
 
 		$this->processImage();
 
