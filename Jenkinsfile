@@ -1,4 +1,4 @@
 node {
 	stage "Build"
-	sh "phpunit tests"
+	sh "php -l upload/*.php"
 }
