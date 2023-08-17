@@ -1,0 +1,17 @@
+{
+    "name": "jamesread/tquiz",
+    "description": "A team quiz app.",
+    "type": "project",
+	"config": {
+		"vendor-dir": "src/vendor/"
+	},
+    "require": {
+        "jwread/lib-allure": "^8.1"
+    },
+    "authors": [
+        {
+            "name": "jamesread",
+            "email": "contact@jread.com"
+        }
+    ]
+}
